@@ -14,7 +14,6 @@ jobs:
     - name: "Git clone"
       run: |
         git clone https://github.com/Nine-megabytes/MagiskOnWSALocal.git
-        cd MagiskOnWSALocal
     - name: "Bash Script"
       env:
         ARCH: ${{vars.ARCH}}
@@ -22,7 +21,9 @@ jobs:
         MAGISK_VER: ${{vars.MAGISK_VER}}
         RELEASE_TYPE: ${{vars.RELEASE_TYPE}}
         ROOT_SOL: ${{vars.ROOT_SOL}}
-      run: bash ./scripts/run.sh
+      run: |
+          cd MagiskOnWSALocal
+          bash ./scripts/run.sh
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@main
       with:
