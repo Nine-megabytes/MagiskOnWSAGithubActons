@@ -1,0 +1,33 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: MagiskOnWSAGithubActon
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+  push:
+    branches: 
+    - main
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
+    - name: "Bash Script"
+      env:
+        ARCH: ${{vars.ARCH}}
+        GAPPS_BRAND: ${{vars.GAPPS_BRAND}}
+        MAGISK_VER: ${{vars.MAGISK_VER}}
+        RELEASE_TYPE: ${{vars.RELEASE_TYPE}}
+        ROOT_SOL: ${{vars.ROOT_SOL}}
+      run: bash ./scripts/run.sh
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@main
+      with:
+         name: MagiskOnWSAGithubActon
+         path: ./output
