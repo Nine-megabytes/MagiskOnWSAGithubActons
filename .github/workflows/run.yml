@@ -5,19 +5,16 @@ name: MagiskOnWSAGithubActon
 
 on:
   workflow_dispatch:
-  repository_dispatch:
-  push:
-    branches: 
-    - main
-
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@main
+    - name: "Git clone"
+      run: |
+        git clone https://github.com/Nine-megabytes/MagiskOnWSALocal.git
+        cd MagiskOnWSALocal
     - name: "Bash Script"
       env:
         ARCH: ${{vars.ARCH}}
