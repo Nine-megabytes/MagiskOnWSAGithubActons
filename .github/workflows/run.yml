@@ -27,5 +27,5 @@ jobs:
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@main
       with:
-         name: MagiskOnWSAGithubActon
-         path: ./output
+         name: MagiskOnWSAGithubActons
+         path: MagiskOnWSALocal/output
