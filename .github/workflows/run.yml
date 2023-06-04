@@ -21,7 +21,7 @@ jobs:
         MAGISK_VER: ${{vars.MAGISK_VER}}
         RELEASE_TYPE: ${{vars.RELEASE_TYPE}}
         ROOT_SOL: ${{vars.ROOT_SOL}}
-        GAPPS_VARIANT: ${{GAPPS_VARIANT}}
+        GAPPS_VARIANT: ${{vars.GAPPS_VARIANT}}
       run: |
           cd MagiskOnWSALocal
           bash ./scripts/run.sh
