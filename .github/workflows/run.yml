@@ -22,6 +22,7 @@ jobs:
         RELEASE_TYPE: ${{vars.RELEASE_TYPE}}
         ROOT_SOL: ${{vars.ROOT_SOL}}
         GAPPS_VARIANT: ${{vars.GAPPS_VARIANT}}
+        COMPRESS_FORMAT: ${{vars.COMPRESS_FORMAT}}
       run: |
           cd MagiskOnWSALocal
           bash ./scripts/run.sh
